@@ -1,0 +1,39 @@
+swagger: '2.0'
+info:
+  x-ibm-name: template-go-gin
+  version: 1.0.0
+  title:  Go Gin App for Microservices and Edge
+  description: Starter Appplication for Microservice and Edge solutions written in the GoLang Programming Langauge and Gin Web Framework
+  contact:
+    email: mjperrin@us.ibm.com
+  termsOfService: "https://www-03.ibm.com/software/sla/sladb.nsf/sla/csdsp?OpenDocument"
+  license:
+    name: "Apache2"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+
+consumes:
+  - application/json
+produces:
+  - application/json
+
+paths:
+  /health:
+    get:
+      operationId: get
+      description: Get health status of Application
+      responses:
+        200:
+          description: "Health check response"
+          schema:
+            $ref: "#/definitions/healthResponse"
+          examples:
+            application/json: { "status": "UP"}
+
+definitions:
+  healthResponse:
+    type: "object"
+    properties:
+      status:
+        type: "string"
+      cluster:
+        type: "string"
